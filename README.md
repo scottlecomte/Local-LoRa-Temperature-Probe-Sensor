@@ -13,7 +13,7 @@ Companion receiver: [Lora to Ethernet Bridge](https://github.com/scottlecomte/Lo
 | Probe | DS18B20 data on GP28 |
 | LEDs | GP13 stays on when the board is up. GP12 blinks on each send |
 
-`SEND_INTERVAL_S` is 10 seconds between readings. `ACK_RETRIES` is 2, so three tries total if the bridge does not ACK.
+While the temperature is steady, `HEARTBEAT_S` is 300 seconds between readings. While it is moving (more than `TEMP_DELTA_F`, 1.0 Fahrenheit, from the last value sent), readings go out every `FAST_INTERVAL_S` (10 seconds). `ACK_RETRIES` is 2, so three tries total if the bridge does not ACK.
 
 ## Layout
 

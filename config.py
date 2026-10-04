@@ -23,5 +23,19 @@ ONEWIRE_PIN = 28
 LED_PIN = 13
 LED_TX_PIN = 12
 
-# Seconds to wait between readings.
-SEND_INTERVAL_S = 10
+# Seconds between sends while the coolant temperature is steady.
+HEARTBEAT_S = 300  # about 5 minutes; 68-70 F idle is normal
+
+# Seconds between sends while the temperature is moving.
+FAST_INTERVAL_S = 10
+
+# Fahrenheit. Farther than this from the last sent value counts as moving.
+TEMP_DELTA_F = 1.0
+
+# Repeater. This node stays a client; only the bridge (SERVER_ADDRESS) sends ACKs.
+# REPEAT_HOPS is how many rebroadcasts an unstamped packet may still take.
+# Each repeater decrements the count in the flags byte (see lib/ulora.py).
+REPEAT_ENABLE = True
+REPEAT_HOPS = 2
+REPEAT_SEEN_MAX = 16
+REPEAT_SEEN_MS = 30000
